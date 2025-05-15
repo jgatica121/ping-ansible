@@ -7,10 +7,6 @@
     - name: hosts1 
       prompt: ¿Contrasena CyberARK?
       private: yes
-  hosts: RHEL
-  gather_facts: False
-  vars_files:
-    - vars/main.yml
   tasks:
     - name: ping
       ping:
