@@ -1,0 +1,16 @@
+---
+- name: "reporte logs"
+  vars_prompt:
+    - name: hosts2
+      prompt: ¿Usuario CyberARK?
+      private: yes
+    - name: hosts1 
+      prompt: ¿Contrasena CyberARK?
+      private: yes
+  hosts: RHEL
+  gather_facts: False
+  vars_files:
+    - vars/main.yml
+  tasks:
+    - name: ping
+      ping:
