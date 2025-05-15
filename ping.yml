@@ -8,5 +8,21 @@
       prompt: ¿Contrasena CyberARK?
       private: yes
   tasks:
-    - name: ping
-      ping:
+    - name: Hacer ping al host
+      ansible.builtin.ping:
+
+    - name: Mostrar el nombre del host remoto
+      ansible.builtin.command: hostname
+      register: resultado_hostname
+
+    - name: Imprimir hostname remoto
+      ansible.builtin.debug:
+        msg: "Nombre del host remoto test: {{ resultado_hostname.stdout }}"
+
+    - name: Obtener fecha y hora del host remoto
+      ansible.builtin.command: date
+      register: resultado_fecha_hora
+
+    - name: Imprimir fecha y hora remota
+      ansible.builtin.debug:
+        msg: "Fecha y hora del host remoto: {{ resultado_fecha_hora.stdout }}"
